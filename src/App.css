@@ -1,0 +1,442 @@
+.app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cabecera__logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--acento);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.cabecera__texto h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.cabecera__texto p {
+  margin: 0;
+  font-size: 12px;
+  color: #b9cbe6;
+}
+
+.cabecera__salir {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #dbe6f5;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* ---------- Contenido ---------- */
+.contenido {
+  flex: 1;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 18px 16px 40px;
+}
+
+.tarjeta-panel {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 18px;
+}
+
+.tarjeta-panel + .tarjeta-panel {
+  margin-top: 16px;
+}
+
+.campo {
+  margin-bottom: 14px;
+}
+
+.campo label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tinta-suave);
+  margin-bottom: 6px;
+}
+
+.campo input[type='text'],
+.campo input[type='number'] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radio-sm);
+  border: 1.5px solid var(--borde);
+  font-size: 16px;
+  background: var(--fondo);
+  color: var(--tinta);
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: var(--azul);
+  background: var(--blanco);
+}
+
+/* ---------- Buscador con autocompletado ---------- */
+.buscador {
+  position: relative;
+}
+
+.buscador__lista {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-sm);
+  box-shadow: var(--sombra);
+  max-height: 260px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+}
+
+.buscador__opcion {
+  padding: 10px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 14.5px;
+}
+
+.buscador__opcion:hover,
+.buscador__opcion--activa {
+  background: var(--azul-suave);
+}
+
+.buscador__opcion-grupo {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: var(--azul);
+  background: var(--azul-suave);
+  white-space: nowrap;
+}
+
+.buscador__vacio {
+  padding: 12px 10px;
+  color: var(--tinta-suave);
+  font-size: 13.5px;
+}
+
+.seleccion-actual {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--azul-suave);
+  border-radius: var(--radio-sm);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.seleccion-actual button {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: var(--azul);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.boton-primario {
+  width: 100%;
+  background: var(--acento);
+  color: var(--blanco);
+  border: none;
+  border-radius: var(--radio-sm);
+  padding: 13px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton-primario:disabled {
+  background: #f0b79b;
+  cursor: not-allowed;
+}
+
+.boton-primario:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* ---------- Resultado ---------- */
+.resultado__origen {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.resultado__origen h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.resultado__kcal {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+.resultado__subtitulo {
+  font-size: 12.5px;
+  color: var(--tinta-suave);
+  margin: 0 0 14px;
+}
+
+.tarjetas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tarjeta-alimento {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radio-sm);
+  border: 1.5px solid var(--borde);
+  background: var(--blanco);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.tarjeta-alimento--origen {
+  border-color: var(--azul);
+  background: var(--azul-suave);
+}
+
+.tarjeta-alimento--recomendado {
+  border-color: var(--verde);
+}
+
+.tarjeta-alimento--evitar {
+  border-color: var(--ambar);
+}
+
+.tarjeta-alimento__peso {
+  flex: 0 0 56px;
+  text-align: center;
+  padding-top: 1px;
+}
+
+.tarjeta-alimento__peso strong {
+  display: block;
+  font-size: 18px;
+  color: var(--tinta);
+}
+
+.tarjeta-alimento__peso span {
+  font-size: 10.5px;
+  color: var(--tinta-suave);
+}
+
+.tarjeta-alimento__info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.tarjeta-alimento__badge-fila {
+  margin-top: 6px;
+}
+
+.tarjeta-alimento__nombre {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--tinta);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-alimento__origen-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--azul);
+  background: var(--blanco);
+  border: 1px solid var(--azul);
+  padding: 1px 7px;
+  border-radius: 999px;
+}
+
+.tarjeta-alimento__nota {
+  font-size: 11.5px;
+  color: var(--tinta-suave);
+  margin-top: 3px;
+}
+
+.badge-momento {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge-momento--recomendado {
+  background: var(--verde-suave);
+  color: var(--verde);
+}
+
+.badge-momento--evitar {
+  background: var(--ambar-suave);
+  color: var(--ambar);
+}
+
+.badge-momento--neutral {
+  background: var(--fondo);
+  color: var(--tinta-suave);
+}
+
+/* ---------- Verduras ---------- */
+.aviso-verdura {
+  background: var(--verde-suave);
+  border: 1px solid #bfe8d4;
+  border-radius: var(--radio-sm);
+  padding: 12px 14px;
+  font-size: 13.5px;
+  color: #17714a;
+  margin-bottom: 14px;
+}
+
+.lista-verduras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.lista-verduras span {
+  background: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 13.5px;
+}
+
+/* ---------- Acceso ---------- */
+.acceso {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.acceso__tarjeta {
+  width: 100%;
+  max-width: 360px;
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.acceso__logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--acento);
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin: 0 auto 14px;
+}
+
+.acceso__tarjeta h1 {
+  font-size: 18px;
+  margin: 0 0 4px;
+  color: var(--azul-oscuro);
+}
+
+.acceso__tarjeta p {
+  font-size: 13px;
+  color: var(--tinta-suave);
+  margin: 0 0 18px;
+}
+
+.acceso__tarjeta input {
+  width: 100%;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 13px 14px;
+  border-radius: var(--radio-sm);
+  border: 1.5px solid var(--borde);
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.acceso__tarjeta input:focus {
+  outline: none;
+  border-color: var(--azul);
+}
+
+.acceso__error {
+  background: #fdecea;
+  color: #b3261e;
+  border-radius: var(--radio-sm);
+  padding: 10px 12px;
+  font-size: 12.5px;
+  margin-bottom: 12px;
+}
+
+.acceso__pie {
+  margin-top: 16px !important;
+  font-size: 11.5px !important;
+}
+
+.estado-carga {
+  text-align: center;
+  padding: 40px 16px;
+  color: var(--tinta-suave);
+  font-size: 14px;
+}
