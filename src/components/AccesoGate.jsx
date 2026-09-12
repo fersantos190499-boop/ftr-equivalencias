@@ -71,7 +71,7 @@ export default function AccesoGate({ children }) {
       <div className="acceso__tarjeta">
         <div className="acceso__logo">⛽</div>
         <h1>Fuel to Run</h1>
-        <p>Introduce tu código de acceso para ver tus sustituciones</p>
+        <p>Introduce tu código de acceso para ver tus equivalencias</p>
         <form onSubmit={comprobar}>
           <input
             type="text"

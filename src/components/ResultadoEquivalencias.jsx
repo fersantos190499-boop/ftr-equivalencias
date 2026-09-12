@@ -1,4 +1,5 @@
 import TarjetaAlimento from './TarjetaAlimento.jsx'
+import categoriasVerduras from '../data/verdurasEjemplos.js'
 
 const NOMBRE_GRUPO = {
   proteina: 'proteínas',
@@ -13,10 +14,12 @@ export default function ResultadoEquivalencias({ resultado, origen, onUsarComoOr
         <div className="aviso-verdura">
           Las verduras se pueden combinar libremente: no es necesario pesarlas ni igualar calorías entre ellas.
         </div>
-        <p className="resultado__subtitulo">Verduras permitidas</p>
-        <div className="lista-verduras">
-          {resultado.verdurasDisponibles.map((v) => (
-            <span key={v.nombre}>{v.nombre}</span>
+        <div className="categorias-verdura">
+          {categoriasVerduras.map((cat) => (
+            <p className="categoria-verdura" key={cat.titulo}>
+              <span className="categoria-verdura__titulo">{cat.titulo}: </span>
+              <span className="categoria-verdura__ejemplos">{cat.ejemplos.join(', ')}...</span>
+            </p>
           ))}
         </div>
       </div>
