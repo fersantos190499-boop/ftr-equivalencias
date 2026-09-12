@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-  --azul: #124b8c;
-  --azul-oscuro: #0b3563;
-  --azul-suave: #eaf2fb;
+  --azul: #56a2c0;
+  --azul-oscuro: #275668;
+  --azul-medio: #34748e;
+  --azul-suave: #e9f3f7;
+  --azul-suave-2: #b5d6e3;
   --acento: #ff6a2f;
   --acento-suave: #ffece2;
   --verde: #1e9e64;

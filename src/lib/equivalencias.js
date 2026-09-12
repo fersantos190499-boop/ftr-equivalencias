@@ -3,6 +3,11 @@
 
 export const GRUPOS_CON_PESO = ['proteina', 'hidrato', 'grasa']
 
+// Orden de presentación de los grupos de momento: primero las mejores
+// opciones cerca del entreno, luego las neutras, luego las que mejor van
+// lejos del entreno.
+const ORDEN_MOMENTO = { recomendado: 0, neutral: 1, evitar_cerca: 2 }
+
 /** kcal totales que aporta un alimento a un peso dado. */
 export function kcalTotales(pesoG, kcal100g) {
   return (pesoG / 100) * kcal100g
@@ -54,6 +59,9 @@ export function calcularEquivalencias(origen, pesoOrigenG, alimentos) {
     .sort((a, b) => {
       if (a.esOrigen) return -1
       if (b.esOrigen) return 1
+      const ordenA = ORDEN_MOMENTO[clasificarMomento(a.alimento)]
+      const ordenB = ORDEN_MOMENTO[clasificarMomento(b.alimento)]
+      if (ordenA !== ordenB) return ordenA - ordenB
       return a.alimento.nombre.localeCompare(b.alimento.nombre, 'es')
     })
 

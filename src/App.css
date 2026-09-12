@@ -7,7 +7,7 @@
 /* ---------- Cabecera ---------- */
 .cabecera {
   position: relative;
-  background: linear-gradient(135deg, var(--azul-oscuro) 0%, #0f4c85 100%);
+  background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 55%, var(--azul) 130%);
   color: var(--blanco);
   padding: 16px 18px;
   display: flex;
@@ -51,7 +51,7 @@
   font-weight: 600;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: #a9c3e6;
+  color: var(--azul-suave-2);
 }
 
 .cabecera__salir {
@@ -163,7 +163,7 @@
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 999px;
-  color: var(--azul);
+  color: var(--azul-medio);
   background: var(--azul-suave);
   white-space: nowrap;
 }
@@ -189,7 +189,7 @@
   margin-left: auto;
   border: none;
   background: transparent;
-  color: var(--azul);
+  color: var(--azul-medio);
   font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
@@ -234,7 +234,7 @@
 .resultado__kcal {
   font-size: 20px;
   font-weight: 700;
-  color: var(--azul);
+  color: var(--azul-medio);
 }
 
 .resultado__subtitulo {
@@ -314,7 +314,7 @@
 .tarjeta-alimento__origen-tag {
   font-size: 10px;
   font-weight: 700;
-  color: var(--azul);
+  color: var(--azul-medio);
   background: var(--blanco);
   border: 1px solid var(--azul);
   padding: 1px 7px;

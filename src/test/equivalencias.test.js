@@ -69,6 +69,12 @@ describe('calcularEquivalencias', () => {
     expect(kcalSalmon).toBeCloseTo(247.5, -1)
   })
 
+  it('ordena las alternativas por grupo de momento: recomendado, neutral, evitar_cerca (origen siempre primero)', () => {
+    const r = calcularEquivalencias(alimentos[0], 150, alimentos) // origen: Pechuga de pollo (neutral)
+    const nombres = r.equivalencias.map((e) => e.alimento.nombre)
+    expect(nombres).toEqual(['Pechuga de pollo', 'Merluza', 'Salmón'])
+  })
+
   it('las verduras no llevan cálculo de peso, solo la lista del grupo', () => {
     const verdura = { nombre: 'Lechuga', grupo: 'verdura', kcal_100g: 15 }
     const r = calcularEquivalencias(verdura, 100, alimentos)
