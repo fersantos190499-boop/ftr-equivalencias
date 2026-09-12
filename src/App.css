@@ -29,8 +29,8 @@
   width: 38px;
   height: 38px;
   border-radius: 11px;
-  background: linear-gradient(135deg, var(--acento) 0%, #ff8a4d 100%);
-  box-shadow: 0 4px 12px rgba(255, 106, 47, 0.4);
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-suave-2) 100%);
+  box-shadow: 0 4px 12px rgba(86, 162, 192, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -424,8 +424,8 @@
   width: 60px;
   height: 60px;
   border-radius: 16px;
-  background: linear-gradient(135deg, var(--acento) 0%, #ff8a4d 100%);
-  box-shadow: 0 10px 24px rgba(255, 106, 47, 0.38);
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-suave-2) 100%);
+  box-shadow: 0 10px 24px rgba(86, 162, 192, 0.4);
   color: var(--blanco);
   display: flex;
   align-items: center;
