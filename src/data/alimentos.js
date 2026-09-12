@@ -1,6 +1,6 @@
-// Base de datos de alimentos de ejemplo.
+// Base de datos de alimentos de Fuel to Run.
 //
-// Sustituye este array por tu tabla real cuando quieras: la lógica de la app
+// Puedes editar este array libremente: la lógica de la app
 // (src/lib/equivalencias.js) no cambia, solo lee este archivo.
 //
 // Campos de cada alimento:
@@ -10,56 +10,70 @@
 //   momento                 -> array con una o varias de:
 //                              "pre_entreno" | "post_entreno" | "lejos_entreno" | "cualquier_momento"
 //   recomendacion_momento   -> texto corto opcional que se muestra en la tarjeta
+//
+// Peso de referencia: todo en CRUDO salvo las legumbres (garbanzos, lentejas,
+// alubias, guisantes), que están en COCIDO — se indica en el propio nombre.
+// Los valores de kcal/100g son de tablas de composición estándar (BEDCA/USDA),
+// aproximados: revísalos y ajústalos si tienes tus propias referencias.
 
 const alimentos = [
-  // ---------- PROTEÍNA ----------
-  { nombre: 'Pechuga de pollo', grupo: 'proteina', kcal_100g: 165, momento: ['cualquier_momento'], recomendacion_momento: '' },
-  { nombre: 'Pechuga de pavo', grupo: 'proteina', kcal_100g: 135, momento: ['cualquier_momento'], recomendacion_momento: '' },
-  { nombre: 'Solomillo de cerdo', grupo: 'proteina', kcal_100g: 143, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión algo más lenta' },
-  { nombre: 'Ternera magra', grupo: 'proteina', kcal_100g: 172, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión algo más lenta' },
-  { nombre: 'Salmón', grupo: 'proteina', kcal_100g: 208, momento: ['lejos_entreno'], recomendacion_momento: 'Alto en grasa, mejor lejos del entreno' },
-  { nombre: 'Merluza / pescado blanco', grupo: 'proteina', kcal_100g: 86, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Digestión rápida y ligera, ideal cerca del entreno' },
-  { nombre: 'Atún al natural (lata)', grupo: 'proteina', kcal_100g: 116, momento: ['post_entreno', 'cualquier_momento'], recomendacion_momento: 'Práctico post-entreno' },
-  { nombre: 'Gambas / langostinos', grupo: 'proteina', kcal_100g: 99, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Muy magro, digestión rápida' },
-  { nombre: 'Huevo entero (cocido)', grupo: 'proteina', kcal_100g: 155, momento: ['cualquier_momento'], recomendacion_momento: '' },
-  { nombre: 'Claras de huevo', grupo: 'proteina', kcal_100g: 52, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Proteína pura, digestión rápida' },
-  { nombre: 'Tofu firme', grupo: 'proteina', kcal_100g: 76, momento: ['cualquier_momento'], recomendacion_momento: '' },
-  { nombre: 'Yogur griego natural', grupo: 'proteina', kcal_100g: 97, momento: ['cualquier_momento'], recomendacion_momento: '' },
-  { nombre: 'Queso fresco batido 0%', grupo: 'proteina', kcal_100g: 45, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Muy ligero, buena opción cerca del entreno' },
-  { nombre: 'Jamón cocido / pavo (fiambre)', grupo: 'proteina', kcal_100g: 105, momento: ['cualquier_momento'], recomendacion_momento: '' },
-  { nombre: 'Queso curado', grupo: 'proteina', kcal_100g: 350, momento: ['lejos_entreno'], recomendacion_momento: 'Alto en grasa, mejor lejos del entreno' },
-
   // ---------- HIDRATO ----------
-  { nombre: 'Arroz blanco (cocido)', grupo: 'hidrato', kcal_100g: 130, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida, ideal pre/post-entreno' },
-  { nombre: 'Pasta blanca (cocida)', grupo: 'hidrato', kcal_100g: 131, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida, ideal pre/post-entreno' },
-  { nombre: 'Patata (cocida)', grupo: 'hidrato', kcal_100g: 87, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida, buena antes o después de correr' },
-  { nombre: 'Pan blanco', grupo: 'hidrato', kcal_100g: 265, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida' },
-  { nombre: 'Tortitas de arroz / maíz', grupo: 'hidrato', kcal_100g: 387, momento: ['pre_entreno'], recomendacion_momento: 'Muy digestivas justo antes de entrenar' },
-  { nombre: 'Plátano', grupo: 'hidrato', kcal_100g: 89, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Clásico pre-entreno, rápido y bien tolerado' },
-  { nombre: 'Maíz dulce (cocido)', grupo: 'hidrato', kcal_100g: 96, momento: ['cualquier_momento'], recomendacion_momento: '' },
-  { nombre: 'Arroz integral (cocido)', grupo: 'hidrato', kcal_100g: 111, momento: ['lejos_entreno'], recomendacion_momento: 'Más fibra, mejor lejos del entreno' },
-  { nombre: 'Pan integral', grupo: 'hidrato', kcal_100g: 247, momento: ['lejos_entreno'], recomendacion_momento: 'Más fibra, mejor lejos del entreno' },
-  { nombre: 'Avena (copos)', grupo: 'hidrato', kcal_100g: 389, momento: ['lejos_entreno'], recomendacion_momento: 'Digestión más lenta, mejor lejos del entreno' },
-  { nombre: 'Quinoa (cocida)', grupo: 'hidrato', kcal_100g: 120, momento: ['lejos_entreno'], recomendacion_momento: 'Más fibra, mejor lejos del entreno' },
-  { nombre: 'Cuscús (cocido)', grupo: 'hidrato', kcal_100g: 112, momento: ['cualquier_momento'], recomendacion_momento: '' },
+  { nombre: 'Arroz blanco (crudo)', grupo: 'hidrato', kcal_100g: 365, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida, ideal pre/post-entreno' },
+  { nombre: 'Pasta blanca (cruda)', grupo: 'hidrato', kcal_100g: 371, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida, ideal pre/post-entreno' },
+  { nombre: 'Arroz integral (crudo)', grupo: 'hidrato', kcal_100g: 370, momento: ['lejos_entreno'], recomendacion_momento: 'Más fibra, mejor lejos del entreno' },
+  { nombre: 'Pasta integral (cruda)', grupo: 'hidrato', kcal_100g: 348, momento: ['lejos_entreno'], recomendacion_momento: 'Más fibra, mejor lejos del entreno' },
+  { nombre: 'Noodles de arroz (crudos)', grupo: 'hidrato', kcal_100g: 364, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida, sin gluten' },
+  { nombre: 'Cuscús (crudo)', grupo: 'hidrato', kcal_100g: 376, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida, muy digestivo' },
+  { nombre: 'Quinoa (cruda)', grupo: 'hidrato', kcal_100g: 368, momento: ['lejos_entreno'], recomendacion_momento: 'Más fibra y grasa vegetal, mejor lejos del entreno' },
+  { nombre: 'Patata (cruda)', grupo: 'hidrato', kcal_100g: 77, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida, buena antes o después de correr' },
+  { nombre: 'Boniato (crudo)', grupo: 'hidrato', kcal_100g: 86, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida-media, buena cerca del entreno' },
+  { nombre: 'Ñoquis (crudos)', grupo: 'hidrato', kcal_100g: 156, momento: ['cualquier_momento'], recomendacion_momento: '' },
   { nombre: 'Garbanzos (cocidos)', grupo: 'hidrato', kcal_100g: 164, momento: ['lejos_entreno'], recomendacion_momento: 'Legumbre con fibra, mejor lejos del entreno' },
   { nombre: 'Lentejas (cocidas)', grupo: 'hidrato', kcal_100g: 116, momento: ['lejos_entreno'], recomendacion_momento: 'Legumbre con fibra, mejor lejos del entreno' },
-  { nombre: 'Boniato (cocido)', grupo: 'hidrato', kcal_100g: 90, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida-media, buena cerca del entreno' },
+  { nombre: 'Alubias (cocidas)', grupo: 'hidrato', kcal_100g: 127, momento: ['lejos_entreno'], recomendacion_momento: 'Legumbre con fibra, mejor lejos del entreno' },
+  { nombre: 'Guisantes (cocidos)', grupo: 'hidrato', kcal_100g: 84, momento: ['lejos_entreno'], recomendacion_momento: 'Legumbre con fibra, mejor lejos del entreno' },
+  { nombre: 'Pasta de lentejas (cruda)', grupo: 'hidrato', kcal_100g: 340, momento: ['lejos_entreno'], recomendacion_momento: 'Alta en fibra y proteína vegetal, mejor lejos del entreno' },
+  { nombre: 'Maíz dulce (cocido)', grupo: 'hidrato', kcal_100g: 96, momento: ['cualquier_momento'], recomendacion_momento: '' },
+  { nombre: 'Pan blanco', grupo: 'hidrato', kcal_100g: 265, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida' },
+  { nombre: 'Pan integral', grupo: 'hidrato', kcal_100g: 247, momento: ['lejos_entreno'], recomendacion_momento: 'Más fibra, mejor lejos del entreno' },
+  { nombre: 'Tortitas de arroz', grupo: 'hidrato', kcal_100g: 387, momento: ['pre_entreno'], recomendacion_momento: 'Muy digestivas justo antes de entrenar' },
+  { nombre: 'Tortitas de maíz', grupo: 'hidrato', kcal_100g: 377, momento: ['pre_entreno'], recomendacion_momento: 'Muy digestivas justo antes de entrenar' },
+  { nombre: 'Tortillas de trigo', grupo: 'hidrato', kcal_100g: 310, momento: ['cualquier_momento'], recomendacion_momento: '' },
+  { nombre: 'Avena (copos, crudos)', grupo: 'hidrato', kcal_100g: 389, momento: ['lejos_entreno'], recomendacion_momento: 'Digestión más lenta, mejor lejos del entreno' },
+  { nombre: 'Copos de maíz', grupo: 'hidrato', kcal_100g: 357, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Absorción rápida' },
+
+  // ---------- PROTEÍNA ----------
+  { nombre: 'Pollo (pechuga, cruda)', grupo: 'proteina', kcal_100g: 110, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Muy magro, digestión rápida' },
+  { nombre: 'Pavo (pechuga, cruda)', grupo: 'proteina', kcal_100g: 104, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Muy magro, digestión rápida' },
+  { nombre: 'Lomo de cerdo (crudo)', grupo: 'proteina', kcal_100g: 139, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión algo más lenta' },
+  { nombre: 'Solomillo de cerdo (crudo)', grupo: 'proteina', kcal_100g: 110, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión algo más lenta' },
+  { nombre: 'Hamburguesa de pollo (cruda)', grupo: 'proteina', kcal_100g: 180, momento: ['lejos_entreno'], recomendacion_momento: 'Procesada, con más grasa añadida; mejor lejos del entreno' },
+  { nombre: 'Hamburguesa de ternera (cruda)', grupo: 'proteina', kcal_100g: 220, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión más lenta' },
+  { nombre: 'Ternera (cruda)', grupo: 'proteina', kcal_100g: 110, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión algo más lenta' },
+  { nombre: 'Carne picada de pollo (cruda)', grupo: 'proteina', kcal_100g: 120, momento: ['cualquier_momento'], recomendacion_momento: '' },
+  { nombre: 'Carne picada de ternera (cruda)', grupo: 'proteina', kcal_100g: 145, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión algo más lenta' },
+  { nombre: 'Huevo (crudo)', grupo: 'proteina', kcal_100g: 148, momento: ['cualquier_momento'], recomendacion_momento: '' },
+  { nombre: 'Atún al natural (lata)', grupo: 'proteina', kcal_100g: 116, momento: ['post_entreno', 'cualquier_momento'], recomendacion_momento: 'Práctico post-entreno' },
+  { nombre: 'Merluza (cruda)', grupo: 'proteina', kcal_100g: 71, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Digestión rápida y ligera, ideal cerca del entreno' },
+  { nombre: 'Lubina (cruda)', grupo: 'proteina', kcal_100g: 97, momento: ['cualquier_momento'], recomendacion_momento: '' },
+  { nombre: 'Dorada (cruda)', grupo: 'proteina', kcal_100g: 95, momento: ['cualquier_momento'], recomendacion_momento: '' },
+  { nombre: 'Salmón (crudo)', grupo: 'proteina', kcal_100g: 200, momento: ['lejos_entreno'], recomendacion_momento: 'Alto en grasa, mejor lejos del entreno' },
+  { nombre: 'Emperador (crudo)', grupo: 'proteina', kcal_100g: 114, momento: ['cualquier_momento'], recomendacion_momento: '' },
+  { nombre: 'Gambas (crudas)', grupo: 'proteina', kcal_100g: 71, momento: ['pre_entreno', 'post_entreno'], recomendacion_momento: 'Muy magras, digestión rápida' },
+  { nombre: 'Tofu (crudo)', grupo: 'proteina', kcal_100g: 76, momento: ['cualquier_momento'], recomendacion_momento: '' },
+  { nombre: 'Soja texturizada (seca)', grupo: 'proteina', kcal_100g: 335, momento: ['cualquier_momento'], recomendacion_momento: '' },
 
   // ---------- GRASA ----------
-  { nombre: 'Aceite de oliva virgen extra', grupo: 'grasa', kcal_100g: 884, momento: ['lejos_entreno'], recomendacion_momento: 'Grasa pura, mejor lejos del entreno' },
   { nombre: 'Aguacate', grupo: 'grasa', kcal_100g: 160, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
-  { nombre: 'Almendras', grupo: 'grasa', kcal_100g: 579, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
-  { nombre: 'Nueces', grupo: 'grasa', kcal_100g: 654, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
-  { nombre: 'Anacardos', grupo: 'grasa', kcal_100g: 553, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
-  { nombre: 'Crema de cacahuete', grupo: 'grasa', kcal_100g: 588, momento: ['lejos_entreno'], recomendacion_momento: 'Muy calórica y de digestión lenta, evitar justo antes/después' },
-  { nombre: 'Semillas de chía', grupo: 'grasa', kcal_100g: 486, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
-  { nombre: 'Semillas de lino', grupo: 'grasa', kcal_100g: 534, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
+  { nombre: 'Frutos secos (mix)', grupo: 'grasa', kcal_100g: 600, momento: ['lejos_entreno'], recomendacion_momento: 'Valor medio; ajusta según el fruto seco exacto' },
+  { nombre: 'Aceite de oliva virgen extra', grupo: 'grasa', kcal_100g: 884, momento: ['lejos_entreno'], recomendacion_momento: 'Grasa pura, mejor lejos del entreno' },
   { nombre: 'Aceitunas', grupo: 'grasa', kcal_100g: 145, momento: ['cualquier_momento'], recomendacion_momento: '' },
   { nombre: 'Coco rallado', grupo: 'grasa', kcal_100g: 660, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
-  { nombre: 'Mantequilla', grupo: 'grasa', kcal_100g: 717, momento: ['lejos_entreno'], recomendacion_momento: 'Grasa saturada, mejor lejos del entreno' },
-  { nombre: 'Pipas de girasol', grupo: 'grasa', kcal_100g: 584, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
-  { nombre: 'Queso curado (aporte graso)', grupo: 'grasa', kcal_100g: 402, momento: ['lejos_entreno'], recomendacion_momento: 'Alto en grasa, mejor lejos del entreno' },
+  { nombre: 'Crema de cacahuete', grupo: 'grasa', kcal_100g: 588, momento: ['lejos_entreno'], recomendacion_momento: 'Muy calórica y de digestión lenta, evitar justo antes/después' },
+  { nombre: 'Queso (semicurado)', grupo: 'grasa', kcal_100g: 370, momento: ['lejos_entreno'], recomendacion_momento: 'Valor medio; ajusta según el tipo de queso' },
+  { nombre: 'Chocolate negro (70-85%)', grupo: 'grasa', kcal_100g: 590, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
+  { nombre: 'Semillas de chía', grupo: 'grasa', kcal_100g: 486, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
+  { nombre: 'Semillas de lino', grupo: 'grasa', kcal_100g: 534, momento: ['lejos_entreno'], recomendacion_momento: 'Mejor lejos del entreno, digestión lenta' },
 
   // ---------- VERDURA ----------
   // kcal_100g se mantiene por si en el futuro activas equivalencias también aquí,

@@ -1,6 +1,5 @@
 import { normaliza } from './texto.js'
 
-const CSV_URL = import.meta.env.VITE_SHEET_CSV_URL
 export const CLAVE_SESION = 'ftr_sustituciones_acceso'
 
 /** Parser CSV mínimo (soporta campos entre comillas con comas). */
@@ -62,6 +61,7 @@ function filasAObjetos(filas) {
  * (columnas: codigo, nombre, estado). Devuelve { valido, nombre?, motivo? }.
  */
 export async function validarCodigo(codigo) {
+  const CSV_URL = import.meta.env.VITE_SHEET_CSV_URL
   if (!CSV_URL) {
     throw new Error(
       'Falta configurar la URL de la hoja de acceso (VITE_SHEET_CSV_URL). Revisa el README.'
